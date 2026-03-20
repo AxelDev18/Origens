@@ -4,7 +4,15 @@
             Origens by Domingo Navarro
         </h1>
 
-        <app-menu></app-menu>
+        <nav class="flex justify-center gap-4 mb-8">
+            <a routerLink="/" class="px-6 py-2 bg-amber-600 text-white font-semibold rounded-full hover:bg-amber-700 transition-colors"
+                routerLinkActive="bg-amber-800 ring-4 ring-amber-300"
+                [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+            <a routerLink="/carta" class="px-6 py-2 bg-amber-600 text-white font-semibold rounded-full hover:bg-amber-700 transition-colors"
+                routerLinkActive="bg-amber-800 ring-4 ring-amber-300">Carta</a>
+        </nav>
+
+        <router-outlet></router-outlet>
 
     </div>
 </main>
