@@ -1,0 +1,17 @@
+<section class="p-8">
+    <h1 class="text-center text-3xl font-bold mb-8">Nuestra Carta</h1>
+    <div class="grid gap-6 md:grid-cols-2">
+        @for(plato of platos; track plato.id) {
+            <div class="bg-sky-200 rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-semibold">{{ plato.nombre }}</h3>
+                <h4 class="text-gray-600">{{ plato.descripcion }}</h4>
+                <h4>{{ plato.precio }}€</h4>
+                @if (plato.celiaco) {
+                    <span class="text-green-600 text-sm font-bold">Sin Gluten</span>
+                }
+            </div>
+        } @empty {
+            <p>No hay platos.</p>
+        }
+    </div>
+</section>
