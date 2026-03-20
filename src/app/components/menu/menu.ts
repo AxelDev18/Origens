@@ -1,12 +1,5 @@
-import { Component } from '@angular/core';
-
-interface Plato {
-    id: number;
-    nombre: string;
-    descripcion: string;
-    precio: number;
-    celiaco: boolean;
-};
+import { Component, inject, OnInit } from '@angular/core';
+import { MenuService, Plato } from '../../services/menu';
 
 @Component({
     selector: 'app-menu',
@@ -18,21 +11,13 @@ export class Menu {
 
     constructor() { }
 
-    public platos: Plato[] = [
-        {
-            id: 1,
-            nombre: 'Tabla Mixta',
-            descripcion: 'Tabla de embutidos y quesos',
-            precio: 20,
-            celiaco: false
-        },
-        {
-            id: 2,
-            nombre: 'Boquerones',
-            descripcion: 'Boquerones en vinagre',
-            precio: 12,
-            celiaco: true
-        }
-    ]
+    private menuService = inject(MenuService);
+    public platos: Plato[] = [];
+
+    ngOnInit() {
+
+        this.platos = this.menuService.obtenerPlatos();
+
+    }
 
 }
